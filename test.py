@@ -7,3 +7,5 @@ def test_square_positve():
 def test_square_negative():
   assert math.pow(-4,2) == 16
   
+def test_square_zero():
+  assert math.pow(0,2) == 0

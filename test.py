@@ -9,3 +9,9 @@ def test_square_negative():
   
 def test_square_zero():
   assert math.pow(0,2) == 0
+
+def test_thi_one_fails():
+  assert False
+  
+def test_always_pass():
+  assert True

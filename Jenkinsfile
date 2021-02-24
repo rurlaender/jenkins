@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh 'rm -rf venv'
                 sh 'python3 -m venv venv'
                 sh '. venv/bin/activate && python main.py'
             }
@@ -12,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh '. venv/bin/activate && pip install pytest && pytest'
+                sh '. venv/bin/activate && pip install pytest && pytest test.py'
             }
         }
         stage('Deploy') {

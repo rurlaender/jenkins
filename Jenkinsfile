@@ -12,7 +12,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh 'pip install pytest'
+                sh '. venv/bin/activate && pip install pytest'
             }
         }
         stage('Deploy') {

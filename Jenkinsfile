@@ -19,6 +19,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                junit 'result.xml'
             }
         }
     }

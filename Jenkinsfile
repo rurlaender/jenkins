@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'python -venv venv'
+                sh 'python3 -venv venv'
                 sh '. venv/bin/activate'
                 sh 'python main.py'
             }

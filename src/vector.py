@@ -1,3 +1,6 @@
+import math
+
+
 class Vector:
     """
     Object class representing a 3d vector object
@@ -33,6 +36,9 @@ class Vector:
     def __sub__(self, vector):
         return Vector(self.x - vector.x, self.y - vector.y, self.z - vector.z)
 
+    def __mul__(self, vector):
+        return self.x * vector.x + self.y * vector.y + self.z * vector.z
+
     def cross_product(self, vector):
         """Calculates the crossproduct
 
@@ -46,6 +52,16 @@ class Vector:
         y = self.z * vector.x - self.x * vector.z
         z = self.x * vector.y - self.y * vector.x
         return Vector(x, y, z)
+
+    def length(self):
+        """Returns the length of the Vector
+
+        Returns:
+            Vector: The length
+        """
+        return math.sqrt(
+            math.pow(self.x, 2) + math.pow(self.y, 2) + math.pow(self.z, 2)
+        )
 
 
 if __name__ == "__main__":

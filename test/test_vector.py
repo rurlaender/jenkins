@@ -112,6 +112,12 @@ class TestMul:
         result = Vector(0.75, 1.5, -2.25)
         assert result == c
 
+    def test_mul_number_float_values(self):
+        a = Vector(0, 0.5, 1.5)
+        c = a * 0.75
+        result = Vector(0, 0.375, 1.125)
+        assert result == c
+
 
 class TestAngel:
     def test_angel_positive_values(self):

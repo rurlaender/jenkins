@@ -19,7 +19,7 @@ pipeline {
         stage('Generat documentation') {
             steps {
                 sh '. venv/bin/activate && pip install pdoc3 && pdoc src --html --force'
-                sh 'cp ./html/src/* /home/jenkins/workspace/doc'
+                sh 'cp ./html/src/* /home/jenkins/doc'
             }
         }
     }

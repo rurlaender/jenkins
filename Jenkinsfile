@@ -16,9 +16,9 @@ pipeline {
                 sh '. venv/bin/activate && pip install pytest && pytest ./test --junitxml=result.xml'
             }
         }
-        stage('Deploy') {
+        stage('Generat documentation') {
             steps {
-                echo 'Deploying....'
+                sh '. venv/bin/activate && pip install pdoc3 && pdoc src --html --force'
             }
         }
     }

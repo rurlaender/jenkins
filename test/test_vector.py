@@ -10,52 +10,95 @@ sys.path.insert(0, parentdir)
 from src.vector import Vector
 
 
-def test_add_vector_positive_values():
-    a = Vector(1, 2, 3)
-    b = Vector(3, 5, 9)
-    c = a + b
-    result = Vector(4, 7, 12)
-    assert result == c
+def test_init_incorrect_value():
+    with pytest.raises(TypeError):
+        Vector("1", 2, 3)
+    with pytest.raises(TypeError):
+        Vector(1, "2", 3)
+    with pytest.raises(TypeError):
+        Vector(1, 2, "3")
+    with pytest.raises(TypeError):
+        Vector(True, 2, 3)
+    with pytest.raises(TypeError):
+        Vector(1, True, 3)
+    with pytest.raises(TypeError):
+        Vector(2, 2, True)
 
 
-def test_add_vector_negative_values():
-    a = Vector(-1, -2, -3)
-    b = Vector(-1, -3, -2)
-    c = a + b
-    result = Vector(-2, -5, -5)
-    assert result == c
+class TestAdd:
+    def test_add_vector_positive_values(self):
+        a = Vector(1, 2, 3)
+        b = Vector(3, 5, 9)
+        c = a + b
+        result = Vector(4, 7, 12)
+        assert result == c
+
+    def test_add_vector_negative_values(self):
+        a = Vector(-1, -2, -3)
+        b = Vector(-1, -3, -2)
+        c = a + b
+        result = Vector(-2, -5, -5)
+        assert result == c
+
+    def test_add_vector_mixed_values(self):
+        a = Vector(1, -2, 0)
+        b = Vector(-3, 0, 2)
+        c = a + b
+        result = Vector(-2, -2, 2)
+        assert result == c
 
 
-def test_add_vector_mixed_values():
-    a = Vector(1, -2, 0)
-    b = Vector(-3, 0, 2)
-    c = a + b
-    result = Vector(-2, -2, 2)
-    assert result == c
+class TestSub:
+    def test_sub_positive_values(self):
+        a = Vector(1, 2, 3)
+        b = Vector(1, 3, 2)
+        c = a - b
+        result = Vector(0, -1, 1)
+        assert result == c
+
+    def test_sub_negative_values(self):
+        a = Vector(-1, -2, -3)
+        b = Vector(-1, -3, -2)
+        c = a - b
+        result = Vector(0, 1, -1)
+        assert result == c
+
+    def test_sub_mixed_values(self):
+        a = Vector(1, -2, 0)
+        b = Vector(-3, 0, 2)
+        c = a - b
+        result = Vector(4, -2, -2)
+        assert result == c
 
 
-def test_sub_positive_values():
-    a = Vector(1, 2, 3)
-    b = Vector(1, 3, 2)
-    c = a - b
-    result = Vector(0, -1, 1)
-    assert result == c
+# Test multiplication
+class TestMul:
+    def test_mul_vectors_positive_values(self):
+        a = Vector(1, 2, 3)
+        b = Vector(3, 1, 2)
+        c = a * b
+        result = 11
+        assert result == c
 
+    def test_mul_vectors_negative_values(self):
+        a = Vector(-1, -2, -3)
+        b = Vector(-3, -1, -2)
+        c = a * b
+        result = 11
+        assert result == c
 
-def test_sub_negative_values():
-    a = Vector(-1, -2, -3)
-    b = Vector(-1, -3, -2)
-    c = a - b
-    result = Vector(0, 1, -1)
-    assert result == c
+    def test_mul_vectors_mixed_values(self):
+        a = Vector(-1, 2, 3)
+        b = Vector(3, -1, 2)
+        c = a * b
+        result = 1
+        assert result == c
 
-
-def test_sub_mixed_values():
-    a = Vector(1, -2, 0)
-    b = Vector(-3, 0, 2)
-    c = a - b
-    result = Vector(4, -2, -2)
-    assert result == c
+    def test_mul_number_positive_value(self):
+        a = Vector(1, 2, -3)
+        c = a * 2
+        result = Vector(2, 4, -6)
+        assert result == c
 
 
 def test_vector_str_output():

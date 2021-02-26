@@ -73,6 +73,9 @@ class Vector:
         Returns:
             Vector: The crossproduct of the given vectors
         """
+        # Check the correct type
+        if type(vector) != Vector:
+            raise TypeError
         x = self.y * vector.z - self.z * vector.y
         y = self.z * vector.x - self.x * vector.z
         z = self.x * vector.y - self.y * vector.x
@@ -89,7 +92,20 @@ class Vector:
         )
 
     def angel(self, vector):
+        """Calculate the angle between the given vectors
 
+        Args:
+            vector Vector: The vector to calculate the angel between
+
+        Raises:
+            TypeError: If the given value is not a Vector
+
+        Returns:
+            float: The angle
+        """
+        # Check the correct type
+        if type(vector) != Vector:
+            raise TypeError
         a = self * vector
         b = self.length() * vector.length()
         angel = math.acos(a / b)

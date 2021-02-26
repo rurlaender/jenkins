@@ -87,3 +87,10 @@ class Vector:
         return math.sqrt(
             math.pow(self.x, 2) + math.pow(self.y, 2) + math.pow(self.z, 2)
         )
+
+    def angel(self, vector):
+
+        a = self * vector
+        b = self.length() * vector.length()
+        angel = math.acos(a / b)
+        return round(math.degrees(angel), 5)

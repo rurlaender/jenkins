@@ -100,6 +100,12 @@ class TestMul:
         result = Vector(2, 4, -6)
         assert result == c
 
+    def test_mul_number_negative_value(self):
+        a = Vector(1, 2, -3)
+        c = a * -3
+        result = Vector(-3, -6, 9)
+        assert result == c
+
 
 class TestAngel:
     def test_angel_positive_values(self):

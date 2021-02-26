@@ -95,7 +95,7 @@ class Vector:
         """Calculate the angle between the given vectors
 
         Args:
-            vector Vector: The vector to calculate the angel between
+            vector (Vector): The vector to calculate the angel between
 
         Raises:
             TypeError: If the given value is not a Vector

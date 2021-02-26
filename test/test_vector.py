@@ -101,6 +101,23 @@ class TestMul:
         assert result == c
 
 
+class TestAngel:
+    def test_angel_positive_values(self):
+        a = Vector(0, 1, 0)
+        b = Vector(1, 0, 0)
+        c = a.angel(b)
+        assert c == 90
+        b = Vector(1, 1, 0)
+        c = a.angel(b)
+        assert c == 45
+        b = Vector(0, -1, 0)
+        c = a.angel(b)
+        assert c == 180
+        b = Vector(1, -1, 0)
+        c = a.angel(b)
+        assert c == 135
+
+
 def test_vector_str_output():
     a = Vector(-1, 2, 3.5)
     assert str(a) == "(-1|2|3.5)"

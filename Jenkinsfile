@@ -12,7 +12,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh 'rm result.xml'
+                sh 'rm -f result.xml'
                 sh '. venv/bin/activate && pip install pytest && pytest ./test --junitxml=result.xml'
             }
         }

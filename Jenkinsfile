@@ -17,6 +17,7 @@ pipeline {
             }
         }
         stage('Generat documentation') {
+            when { tag "release-*" }
             steps {
                 sh '. venv/bin/activate && pip install pdoc3 && pdoc src --html --force'
                 sh 'cp ./html/src/* /home/jenkins/doc'

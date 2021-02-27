@@ -134,6 +134,9 @@ class TestAngel:
         b = Vector(1, -1, 0)
         c = a.angel(b)
         assert c == 135
+        b = Vector(0, 1, 0)
+        c = a.angel(b)
+        assert c == 0
 
 
 def test_vector_str_output():

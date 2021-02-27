@@ -110,3 +110,12 @@ class Vector:
         b = self.length() * vector.length()
         angel = math.acos(a / b)
         return round(math.degrees(angel), 5)
+
+    def getNormal(self):
+        """Calculates the normal vector
+
+        Returns:
+            Vector : The vector with a length of 1
+        """
+        length = self.length()
+        return Vector(self.x / length, self.y / length, self.z / length)

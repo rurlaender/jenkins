@@ -138,9 +138,9 @@ class TestAngel:
         c = a.angel(b)
         assert c == 0
         a = Vector(1, 1, 1)
-        b = Vector(-1, -2, -2)
+        b = Vector(-1, -1, -1)
         c = a.angel(b)
-        assert c == 164.20683
+        assert c == 180
 
 
 class TestGetNormal:

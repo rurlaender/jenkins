@@ -137,6 +137,10 @@ class TestAngel:
         b = Vector(0, 1, 0)
         c = a.angel(b)
         assert c == 0
+        a = Vector(1, 1, 1)
+        b = Vector(-1, -2, -2)
+        c = a.angel(b)
+        assert c == 164.20683
 
 
 def test_vector_str_output():

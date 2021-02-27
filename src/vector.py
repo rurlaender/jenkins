@@ -107,7 +107,7 @@ class Vector:
         if type(vector) != Vector:
             raise TypeError
         a = self * vector
-        b = self.length() * vector.length()
+        b = round(self.length() * vector.length(), 5)
         angel = math.acos(a / b)
         return round(math.degrees(angel), 5)
 

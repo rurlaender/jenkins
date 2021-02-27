@@ -143,6 +143,23 @@ class TestAngel:
         assert c == 164.20683
 
 
+class TestGetNormal:
+    def test_getNormal_positive_values(self):
+        a = Vector(1, 2, 3)
+        c = a.getNormal()
+        assert c.length() == 1
+
+    def test_getNormal_negative_values(self):
+        a = Vector(-3, -1, -2)
+        c = a.getNormal()
+        assert c.length() == 1
+
+    def test_getNormal_mixed_values(self):
+        a = Vector(-2, 3, 0)
+        c = a.getNormal()
+        assert c.length() == 1
+
+
 def test_vector_str_output():
     a = Vector(-1, 2, 3.5)
     assert str(a) == "(-1|2|3.5)"

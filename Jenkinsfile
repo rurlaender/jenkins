@@ -5,8 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                //sh 'rm -rf venv'
-                //sh 'python3 -m venv venv'
+                sh 'rm -rf venv'
+                sh 'python3 -m venv venv'
             }
         }
         stage('Test') {

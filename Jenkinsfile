@@ -13,7 +13,8 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh 'rm -f result.xml'
-                sh '. venv/bin/activate && pytest ./test --junitxml=result.xml'
+                sh '. venv/bin/activate && pip3 install pytest'
+                sh 'pytest ./test --junitxml=result.xml'
             }
         }
         stage('Generat documentation') {
